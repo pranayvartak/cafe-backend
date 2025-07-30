@@ -8,12 +8,13 @@ var cors = require('cors')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var categoriesRouter = require('./routes/categories');
+var itemsRouter = require('./routes/items');
 
 const { default: mongoose } = require('mongoose');
 
 var app = express();
 
-mongoose.connect("mongodb://192.168.0.247:27017/Cafe")
+mongoose.connect("mongodb://192.168.0.213:27017/Cafe")
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -29,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/categories', categoriesRouter);
+app.use('/item',itemsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
