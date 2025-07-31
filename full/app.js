@@ -9,12 +9,13 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var categoriesRouter = require('./routes/categories');
 var itemsRouter = require('./routes/items');
+var tablesRouter = require('./routes/tables');
 
 const { default: mongoose } = require('mongoose');
 
 var app = express();
 
-mongoose.connect("mongodb://192.168.0.213:27017/Cafe")
+mongoose.connect("mongodb://localhost:27017/Ca")
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -31,6 +32,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/categories', categoriesRouter);
 app.use('/item',itemsRouter);
+app.use('/tables',tablesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
